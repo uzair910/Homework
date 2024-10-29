@@ -8,5 +8,7 @@ internal static class Constants{
     internal static readonly string Title = "title";
     internal static readonly string DiscountPercentage = "discountPercentage";
     internal static readonly string ID = "id";
+    internal static readonly string Brand = "brand";
+    internal static readonly string Rating = "rating";
 }
 

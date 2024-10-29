@@ -12,7 +12,7 @@ namespace Homework.Api.Services
 
     public class ProductService : IProductService
     {
-        
+
         private readonly HttpClient _httpClient;
 
         public ProductService(HttpClient httpClient)
@@ -26,7 +26,7 @@ namespace Homework.Api.Services
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             // var result = JsonSerializer.Deserialize<ProductResponse>(content);
-           
+
             // Good to check: Using Custom deserializer and extracting the properties that we need only.
             var jsonDoc = JsonDocument.Parse(content);
             if (jsonDoc == null) return null;
@@ -35,8 +35,11 @@ namespace Homework.Api.Services
                 .Select(p => new Product
                 {
                     ID = p.GetProperty(Constants.ID).GetInt32(),
+                    Title = p.TryGetProperty(Constants.Title, out JsonElement titleElement) ? titleElement.GetString() : string.Empty, // lets not take a chance and use tryGet
                     DiscountPercentage = p.GetProperty(Constants.DiscountPercentage).GetDecimal(),
-                    Title = p.GetProperty(Constants.Title).GetString()             
+                    Rating = p.GetProperty(Constants.Rating).GetDecimal(),
+                    Brand = p.TryGetProperty(Constants.Brand, out JsonElement brandElement) ? brandElement.GetString() : string.Empty,
+
                 })
                 .ToList();
 
