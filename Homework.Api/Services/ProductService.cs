@@ -3,7 +3,7 @@ using Homework.Api.Models; // Add a Models folder for Product model
 
 namespace Homework.Api.Services
 {
-    // TODO: move this to IProductService file (gotta create that first)
+    // TODO: Good To have: move this to IProductService file (gotta create that first)
     public interface IProductService
     {
         Task<List<Product>> GetProductsAsync();
