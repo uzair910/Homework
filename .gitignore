@@ -155,3 +155,5 @@ Homework.Api.Tests/obj/Debug/net8.0/Homework.Api.Tests.assets.cache
 Homework.Api.Tests/obj/Debug/net8.0/Homework.Api.Tests.AssemblyInfoInputs.cache
 Homework.Api.Tests/obj/Debug/net8.0/Homework.Api.Tests.AssemblyInfo.cs
 Homework.Api.Tests/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+.vscode/launch.json
+.vscode/tasks.json

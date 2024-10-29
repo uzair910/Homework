@@ -1,14 +1,22 @@
+using Homework.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
+namespace Homework.Api.Services;
 [ApiController]
 [Route("api/[controller]")]
-public class ProductController : ControllerBase
+public class ProductsController : ControllerBase
 {
-    [HttpGet]
-    public string GetProducts()
+    private readonly IProductService _productService;
+
+    public ProductsController(IProductService productService)
     {
-        return string.Empty;
+        _productService = productService;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<List<Product>>> GetProducts()
+    {
+        return await _productService.GetProductsAsync();
+    }
 }
