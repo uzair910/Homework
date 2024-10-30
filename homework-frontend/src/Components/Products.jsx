@@ -11,14 +11,14 @@ export default function Products() {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
+        console.log("setting state products...");
+   
         const products = await response.json();
         setProducts(products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
 
-      console.log("setting state products...");
-      setProducts(products);
     }
 
     fetchProducts();
