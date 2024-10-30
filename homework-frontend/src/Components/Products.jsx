@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ProductItem from "./ProductItem";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -22,7 +23,7 @@ export default function Products() {
   return (
     <ul id="products">
       {products.map((product) => (
-        <li key={product.id}>{product.title}</li>
+        <ProductItem key={product.id} product={product} />
       ))}
     </ul>
   );

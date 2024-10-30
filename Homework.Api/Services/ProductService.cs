@@ -39,6 +39,9 @@ namespace Homework.Api.Services
                     DiscountPercentage = p.GetProperty(Constants.DiscountPercentage).GetDecimal(),
                     Rating = p.GetProperty(Constants.Rating).GetDecimal(),
                     Brand = p.TryGetProperty(Constants.Brand, out JsonElement brandElement) ? brandElement.GetString() : string.Empty,
+                    Price = p.GetProperty(Constants.Price).GetDecimal(),
+                    Description = p.TryGetProperty(Constants.Description, out JsonElement descriptionElement) ? descriptionElement.GetString() : string.Empty,
+                    
 
                 })
                 .ToList();

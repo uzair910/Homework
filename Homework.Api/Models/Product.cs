@@ -7,5 +7,9 @@ namespace Homework.Api.Models
         public string? Brand { get; set; }
         public Decimal DiscountPercentage { get; set; } 
         public Decimal Rating { get; set; }
+        public Decimal Price { get; set; }
+        public string? Description { get; set; }
+        
+
     }
 }
