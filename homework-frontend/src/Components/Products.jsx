@@ -6,27 +6,26 @@ export default function Products() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-      
-        const response = await fetch("http://localhost:5034/api/products"
-          , {        mode: 'no-cors'         }
-        );
+        const response = await fetch("http://localhost:5034/api/products", {
+          // mode: "no-cors",
+        });
         console.log("response: ", response);
         console.log("response OK : ", response.ok);
-        console.log("response STATUS: ", response.status);
+        console.log(" response STATUS: ", response.status);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         console.log("response OK! / NOW fetching products...");
         const products = await response.json();
 
+        console.log("PRODCUTS: ", products);
         console.log("setting state products...");
         setProducts(products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
-
     }
 
     fetchProducts();
