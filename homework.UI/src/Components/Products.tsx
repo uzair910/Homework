@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import ProductItem from "./ProductItem";
 
+
+interface Product {
+  id: number;
+  // other properties...
+}
+
 export default function Products() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     async function fetchProducts() {
