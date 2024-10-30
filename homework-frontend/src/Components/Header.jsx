@@ -5,7 +5,7 @@ export default function Header() {
         <h2>Homework MVC</h2>
       </div>
       <nav>
-        <button class="btn">Home</button>
+        <button className="button">Home</button>
       </nav>
     </header>
   );
