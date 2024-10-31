@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Products from "./Components/Products";
 import SearchComponent from "./Components/Search";
-import { Product } from "./interfaces/productInterface";
+import { ProductInterface } from "./interfaces/productInterface";
 
 function App() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<ProductInterface[]>([]);
 
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
+  const [filteredProducts, setFilteredProducts] = useState<ProductInterface[]>(products);
 
   useEffect(() => {
     async function fetchProducts() {

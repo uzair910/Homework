@@ -1,12 +1,12 @@
 // SearchComponent.tsx
 import React, { useState, ChangeEvent } from "react";
-import { Product } from "../interfaces/productInterface";
+import { ProductInterface } from "../interfaces/productInterface";
 
 export default function SearchComponent({
   products,
   onSearchResults,
 }: {
-  products: Product[];
+  products: ProductInterface[];
   onSearchResults?: (query: string) => void;
 }) {
   const [query, setQuery] = useState<string>("");
