@@ -1,4 +1,5 @@
-export default function ProductItem({ product }) {
+import { Product } from '../interfaces/productInterface';
+export default function ProductItem({ product }: { product: Product }) {
   return (
     <li className="product-item">
       <article>
