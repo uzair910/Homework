@@ -1,25 +1,22 @@
-import { useState, ChangeEvent } from "react";
-import { ProductInterface } from "../interfaces/productInterface";
+import { useRef, ChangeEvent } from "react";
 
 export default function Search({
-  products,
-  onSearchResults,
+  onSearch: onSearch,
 }: {
-  products: ProductInterface[];
-  onSearchResults?: (query: string) => void;
+  onSearch?: (query: string) => void;
 }) {
-  const [query, setQuery] = useState<string>(""); // Dont really need this state in current concept but it might be useful if this is needed in future (eg. for cahi)  
+  const inputRef = useRef<HTMLInputElement>(null);
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-    onSearchResults?.(event.target.value);
+    const query = inputRef.current?.value || "";
+    onSearch?.(query);
   };
 
   return (
     <input
+      ref={inputRef}
       className="search-input"
       type="text"
       placeholder="Search by name..."
-      value={query}
       onChange={handleSearch}
     />
   );

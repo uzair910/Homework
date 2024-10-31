@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <Header />
-      <Search products={products} onSearchResults={handleSearch} />
+      <Search products={products} onSearch={handleSearch} />
       <Trending products={products} />
       <Products products={filteredProducts} />
     </>
