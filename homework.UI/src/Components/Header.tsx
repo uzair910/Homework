@@ -4,9 +4,11 @@ export default function Header() {
       <div id="title">
         <h2>Homework MVC</h2>
       </div>
-      <nav>
-        <button className="button">Home</button>
-      </nav>
+      <div>
+        <nav>
+          <button className="button">Home</button>
+        </nav>
+      </div>
     </header>
   );
 }

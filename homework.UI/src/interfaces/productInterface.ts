@@ -6,4 +6,5 @@ export interface ProductInterface {
     price: number;
     description: string;
     id: number;
+    rating: number;
   }
