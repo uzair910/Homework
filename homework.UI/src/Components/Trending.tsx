@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProductInterface } from '../interfaces/productInterface';
+import { Product } from '../interfaces/productInterface';
 
 interface TrendingProps {
-  products: ProductInterface[];
+  products: Product[];
 }
 
 export default  function Trending ({ products }: TrendingProps){

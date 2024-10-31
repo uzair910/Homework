@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Products from "./Components/Products";
 import Search from "./Components/Search";
-import { ProductInterface } from "./interfaces/productInterface";
+import { Product } from "./interfaces/productInterface";
 import Trending from "./Components/Trending";
 
 function App() {
-  const [products, setProducts] = useState<ProductInterface[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] =
-    useState<ProductInterface[]>(products);
+    useState<Product[]>(products);
 
   useEffect(() => {
     async function fetchProducts() {

@@ -1,7 +1,7 @@
 import ProductItem from "./ProductItem";
-import { ProductInterface } from "../interfaces/productInterface";
+import { Product } from "../interfaces/productInterface";
 
-export default function Products({ products }: { products: ProductInterface[] }) {
+export default function Products({ products }: { products: Product[] }) {
   return (
     <ul id="products">
       {products.map((product) => (
