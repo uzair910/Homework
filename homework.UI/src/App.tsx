@@ -1,16 +1,15 @@
-import './App.css'
-import { useState, useEffect } from 'react';
-import Header from './Components/Header';
-import Products from './Components/Products';
-import SearchComponent from './Components/Search';
-import { Product } from './interfaces/productInterface';
-
+import "./App.css";
+import { useState, useEffect } from "react";
+import Header from "./Components/Header";
+import Products from "./Components/Products";
+import SearchComponent from "./Components/Search";
+import { Product } from "./interfaces/productInterface";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
-  
+
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
-  
+
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -20,6 +19,7 @@ function App() {
         }
         const products = await response.json();
         setProducts(products);
+        setFilteredProducts(products); // Show all products initially
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -34,14 +34,13 @@ function App() {
     setFilteredProducts(filteredProducts);
   };
 
-
   return (
     <>
-    <Header />
-    <SearchComponent products={products}  onSearchResults={handleSearch}/>
-    <Products products={filteredProducts} />
-  </>
-  )
+      <Header />
+      <SearchComponent products={products} onSearchResults={handleSearch} />
+      <Products products={filteredProducts} />
+    </>
+  );
 }
 
-export default App
+export default App;
