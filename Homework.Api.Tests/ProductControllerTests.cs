@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Homework.Api.Models;
 using Homework.Api.Services;
 
+namespace Homework.Api.Tests;
 [TestFixture]
 public class ProductControllerTests
 {
@@ -21,17 +22,38 @@ public class ProductControllerTests
     {
         // Arrange
         var productId = 1;
-        var mockProduct = new Product { ID = productId, Title = "Sample Product", Brand = "Apple", Description = "This is a sample product", Price = 100, Rating = 4.5M, DiscountPercentage = 10 };
+        var mockProduct = new Product
+        {
+            ID = productId,
+            Title = "Sample Product",
+            Brand = "Apple",
+            Description = "This is a sample product",
+            Price = 100,
+            Rating = 4.5M,
+            DiscountPercentage = 10
+        };
+
         var mockProducts = new List<Product> { mockProduct };
+
         _mockProductService.Setup(service => service.GetProductsAsync())
-                   .ReturnsAsync(mockProducts);
+                           .ReturnsAsync(mockProducts);
+
         // Act
-        var result = await  _controller.GetProducts();
+        var result = await _controller.GetProducts();
 
         // Assert
         Assert.IsInstanceOf<ActionResult<List<Product>>>(result);
-        var okResult = result as ActionResult<List<Product>>;
+        var actionResult = result as ActionResult<List<Product>>;
+        Assert.NotNull(actionResult);
+
+        // Access the Result property to get the actual list
+        var okResult = actionResult.Result as OkObjectResult;
         Assert.NotNull(okResult);
-        Assert.AreEqual(mockProduct, okResult.Value[0]);
+        Assert.NotNull(okResult.Value);
+
+        var products = okResult.Value as List<Product>;
+        Assert.NotNull(products);
+        Assert.AreEqual(1, products.Count); // Verify we have one product
+        Assert.AreEqual(mockProduct, products[0]); // Verify the product is correct
     }
 }
