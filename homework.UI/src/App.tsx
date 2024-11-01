@@ -1,32 +1,26 @@
 import "./App.css";
+import { API_URL, API_GET_ALL_PRODUCTS } from "./Data";
 import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Products from "./Components/Products";
 import Search from "./Components/Search";
 import { Product } from "./interfaces/productInterface";
 import Trending from "./Components/Trending";
+import { useFetchData } from "./hooks/usehttp";
 
 function App() {
+  const { loading, error, data } = useFetchData(
+    API_URL + API_GET_ALL_PRODUCTS
+  );
   const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] =
-    useState<Product[]>(products);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch("http://localhost:5034/api/products"); // TODO: Move to a constant
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const products = await response.json();
-        setProducts(products);
-        setFilteredProducts(products); // Show all products initially
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
+    if (data) {
+      setProducts(data);
+      setFilteredProducts(data);
     }
-    fetchProducts();
-  }, []);
+  }, [data, error]);
 
   const handleSearch = (query: string) => {
     const filteredProducts = products.filter((product) =>
@@ -38,9 +32,16 @@ function App() {
   return (
     <>
       <Header />
-      <Search products={products} onSearch={handleSearch} />
-      <Trending products={products} />
-      <Products products={filteredProducts} />
+      <Search onSearch={handleSearch} />
+      <div className={`loading-message${error ? " error" : ""}`}>
+        {loading ? "Loading..." : error ? error.message : ""  }
+      </div>
+      {!error && (
+        <>
+          <Trending products={products} />
+          <Products products={filteredProducts} />
+        </>
+      )}
     </>
   );
 }

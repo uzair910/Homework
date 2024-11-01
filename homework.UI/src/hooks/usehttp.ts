@@ -1,13 +1,13 @@
- async function sendHttpRequest(url: string, config: RequestInit){
-    const response = await fetch(url, config);
-    const respData = await response.json();
-    if (!response.ok) {
-      throw new Error(respData.message || `Something went wrong, failed to the request!`);
-    }
-    
-    return respData;
-}
+import { useAsync } from "react-use";
 
-export default function useHttp(){
-    return {sendHttpRequest}
+export function useFetchData(url: string) {
+  const { loading, error, value } = useAsync(async () => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  }, [url]);
+
+  return { loading, error, data: value };
 }
