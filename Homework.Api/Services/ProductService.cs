@@ -6,7 +6,7 @@ namespace Homework.Api.Services
     // TODO: Good To have: move this to IProductService file (gotta create that first)
     public interface IProductService
     {
-        Task<List<Product>> GetProductsAsync();
+        Task<List<IProduct>> GetProductsAsync();
     }
 
 
@@ -20,7 +20,7 @@ namespace Homework.Api.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<Product>> GetProductsAsync()
+        public async Task<List<IProduct>> GetProductsAsync()
         {
             var response = await _httpClient.GetAsync(Constants.ApiBaseUrl);
             response.EnsureSuccessStatusCode();
@@ -46,7 +46,7 @@ namespace Homework.Api.Services
                 })
                 .ToList();
 
-            return products;
+            return products.Cast<IProduct>().ToList();;
         }
     }
 }

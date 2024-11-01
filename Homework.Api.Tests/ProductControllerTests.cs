@@ -33,7 +33,7 @@ public class ProductControllerTests
             DiscountPercentage = 10
         };
 
-        var mockProducts = new List<Product> { mockProduct };
+        var mockProducts = new List<IProduct> { mockProduct };
 
         _mockProductService.Setup(service => service.GetProductsAsync())
                            .ReturnsAsync(mockProducts);
@@ -42,8 +42,8 @@ public class ProductControllerTests
         var result = await _controller.GetProducts();
 
         // Assert
-        Assert.IsInstanceOf<ActionResult<List<Product>>>(result);
-        var actionResult = result as ActionResult<List<Product>>;
+        Assert.IsInstanceOf<ActionResult<List<IProduct>>>(result);
+        var actionResult = result as ActionResult<List<IProduct>>;
         Assert.NotNull(actionResult);
 
         // Access the Result property to get the actual list
@@ -51,7 +51,7 @@ public class ProductControllerTests
         Assert.NotNull(okResult);
         Assert.NotNull(okResult.Value);
 
-        var products = okResult.Value as List<Product>;
+        var products = okResult.Value as List<IProduct>;
         Assert.NotNull(products);
         Assert.AreEqual(1, products.Count); // Verify we have one product
         Assert.AreEqual(mockProduct, products[0]); // Verify the product is correct
