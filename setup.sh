@@ -9,14 +9,14 @@ echo Homework.UI dependencies installed and built.
 
 :: Install dependencies for Homework.API
 echo Installing dependencies for Homework.API...
-cd ..\Homework.API
+cd ../Homework.Api
 dotnet restore
 dotnet build
 echo Homework.API dependencies installed.
 
 :: Install dependencies for Homework.API.Tests
 echo Installing dependencies for Homework.API.Tests...
-cd ..\Homework.API.Tests
+cd ../Homework.Api.Tests
 dotnet restore
 dotnet build
 echo Homework.API.Tests dependencies installed.
