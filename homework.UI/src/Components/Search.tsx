@@ -1,19 +1,21 @@
-import { useRef, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 
 export default function Search({
-  onSearch: onSearch,
+  onSearch,
 }: {
   onSearch?: (query: string) => void;
 }) {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [query, setQuery] = useState("");
+
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    const query = inputRef.current?.value || "";
-    onSearch?.(query);
+    const newQuery = event.target.value;
+    setQuery(newQuery);
+    onSearch?.(newQuery);
   };
 
   return (
     <input
-      ref={inputRef}
+      value={query}
       className="search-input"
       type="text"
       placeholder="Search by name..."

@@ -8,7 +8,6 @@ export default function ProductItem({ product }: { product: Product }) {
             <h4>{product.brand}</h4>
             <p className="product-item-price">${product.price}</p>
             <p className="product-item-description">{product.description}</p>
-
         </div>
       </article>
     </li>

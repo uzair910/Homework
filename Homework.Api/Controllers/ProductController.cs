@@ -13,11 +13,17 @@ public class ProductsController : ControllerBase
     {
         _productService = productService;
     }
-
     [HttpGet]
-    public async Task<ActionResult<List<IProduct>>> GetProducts()
+    public async Task<ActionResult<List<IProduct>>> GetProducts([FromQuery] decimal? discountPercentage)
     {
         var products = await _productService.GetProductsAsync();
-        return Ok(products);
+        if (discountPercentage.HasValue)
+        {
+            return Ok(products.Where(p => p.DiscountPercentage >= discountPercentage.Value).ToList());
+        }
+        else
+        {
+            return Ok(products);
+        }
     }
 }

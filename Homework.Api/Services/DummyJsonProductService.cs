@@ -5,7 +5,6 @@ namespace Homework.Api.Services
 {
     public class DummyJSONProductService : IProductService
     {
-
         private readonly HttpClient _httpClient;
 
         public DummyJSONProductService(HttpClient httpClient)

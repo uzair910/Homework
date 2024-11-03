@@ -11,7 +11,7 @@ import { useFetchData } from "./hooks/usehttp";
 function App() {
   const { loading, error, data } = useFetchData(
     API_URL + API_GET_ALL_PRODUCTS,
-    true
+    10
   );
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
@@ -25,7 +25,9 @@ function App() {
 
   const handleSearch = (query: string) => {
     const filteredProducts = products.filter((product) =>
-      product.title.toLowerCase().includes(query.toLowerCase().trimEnd().trimStart())
+      product.title
+        .toLowerCase()
+        .includes(query.toLowerCase().trimEnd().trimStart())
     );
     setFilteredProducts(filteredProducts);
   };
@@ -35,7 +37,7 @@ function App() {
       <Header />
       <Search onSearch={handleSearch} />
       <div className={`loading-message${error ? " error" : ""}`}>
-        {loading ? "Loading..." : error ? error.message : ""  }
+        {loading ? "Loading..." : error?.message ?? ""}
       </div>
       {!error && (
         <>
