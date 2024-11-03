@@ -19,7 +19,7 @@ function App() {
   }, [data, error]);
 
   const handleSearch = (query: string) => {
-    const filteredProducts = products.filter((product) =>
+    const filteredProducts = data.filter((product) =>
       product.title
         .toLowerCase()
         .includes(query.toLowerCase().trimEnd().trimStart())
@@ -32,10 +32,9 @@ function App() {
       <Header />
       <Search onSearch={handleSearch} />
       <Loading error={error} loading={loading} />
-
       {!error && (
         <>
-          <Trending products={products} />
+          <Trending products={data} />
           <Products products={products} />
         </>
       )}
