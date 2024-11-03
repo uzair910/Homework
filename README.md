@@ -13,6 +13,7 @@
 
 1. Open a terminal or PowerShell in the root folder (make sure you have admin rights).
 2. Execute the `setup.sh` script and wait for it to complete.
+   For MacOS, you can run the command by typing `./setup.sh`
 3. Once the setup script has finished successfully, all dependencies for the three projects ('HOMEWORK.API', 'API.TESTS', and 'UI') will be installed.
 
 ### Step 2: Run the Projects
