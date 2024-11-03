@@ -22,7 +22,5 @@ namespace Homework.Api.Models
         public Decimal Rating { get; set; }
         public Decimal Price { get; set; }
         public string? Description { get; set; }
-
-
     }
 }

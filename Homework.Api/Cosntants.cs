@@ -1,10 +1,10 @@
 internal static class Constants
 {
 
-    // API Related Constants
-    internal static readonly string ApiBaseUrl = "https://dummyjson.com/products";
+    // API related constant(s)
+    internal static readonly string DummyJSONApiBaseUrl = "https://dummyjson.com/products";
 
-    // Product Response Related Constants
+    // Product related constants
     internal static readonly string Products = "products";
     internal static readonly string Title = "title";
     internal static readonly string DiscountPercentage = "discountPercentage";

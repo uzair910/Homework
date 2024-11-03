@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 builder.Services.AddControllers();
-builder.Services.AddTransient<Homework.Api.Services.IProductService, Homework.Api.Services.ProductService>();
+builder.Services.AddTransient<Homework.Api.Services.IProductService, Homework.Api.Services.DummyJSONProductService>();
 builder.Services.AddHttpClient();
 
 // Configure CORS

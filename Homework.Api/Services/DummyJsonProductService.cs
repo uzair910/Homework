@@ -3,26 +3,19 @@ using Homework.Api.Models; // Add a Models folder for Product model
 
 namespace Homework.Api.Services
 {
-    // TODO: Good To have: move this to IProductService file (gotta create that first)
-    public interface IProductService
-    {
-        Task<List<IProduct>> GetProductsAsync();
-    }
-
-
-    public class ProductService : IProductService
+    public class DummyJSONProductService : IProductService
     {
 
         private readonly HttpClient _httpClient;
 
-        public ProductService(HttpClient httpClient)
+        public DummyJSONProductService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
         public async Task<List<IProduct>> GetProductsAsync()
         {
-            var response = await _httpClient.GetAsync(Constants.ApiBaseUrl);
+            var response = await _httpClient.GetAsync(Constants.DummyJSONApiBaseUrl);
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
             // var result = JsonSerializer.Deserialize<ProductResponse>(content);
