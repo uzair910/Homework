@@ -2,8 +2,8 @@
 
 ## Prerequisites
 
-1. Node.js (version 14 or higher) installed on your machine
-2. npm (version 6 or higher) installed on your machine
+1. [Node.js](https://nodejs.org/en/download/package-manager) (version 14 or higher) installed on your machine
+2. [npm](https://www.npmjs.com/package/download) (version 6 or higher) installed on your machine.
 3. [.NET Core SDK](https://dotnet.microsoft.com/en-us/download) (version 3.1 or higher) installed on your machine
    (Optional: A code editor or IDE of your choice)
 
@@ -13,7 +13,7 @@
 
 1. Open a terminal or PowerShell in the root folder (make sure you have admin rights).
 2. Execute the `setup.sh` script and wait for it to complete.
-   For MacOS, you can run the command by typing `./setup.sh`
+   In MacOS, you can run the command by typing `./setup.sh`
 3. Once the setup script has finished successfully, all dependencies for the three projects ('HOMEWORK.API', 'API.TESTS', and 'UI') will be installed.
 
 ### Step 2: Run the Projects
@@ -22,6 +22,8 @@
    a. Run unit tests
    b. Deploy the backend API
    c. Run the React app
+
+(In MacOS, you can run the command by typing ./run.sh)
 
 ## Setup environments manually:
 
