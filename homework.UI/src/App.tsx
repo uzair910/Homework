@@ -1,5 +1,5 @@
 import "./App.css";
-import { API_URL, API_GET_ALL_PRODUCTS } from "./Data";
+import { API_URL, API_GET_ALL_PRODUCTS, DISCOUNT_PERCENTAGE } from "./Data";
 import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Products from "./Components/Products";
@@ -11,7 +11,7 @@ import { useFetchData } from "./hooks/usehttp";
 function App() {
   const { loading, error, data } = useFetchData(
     API_URL + API_GET_ALL_PRODUCTS,
-    10
+    DISCOUNT_PERCENTAGE
   );
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
