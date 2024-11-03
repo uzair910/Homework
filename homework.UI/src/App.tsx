@@ -10,7 +10,8 @@ import { useFetchData } from "./hooks/usehttp";
 
 function App() {
   const { loading, error, data } = useFetchData(
-    API_URL + API_GET_ALL_PRODUCTS
+    API_URL + API_GET_ALL_PRODUCTS,
+    true
   );
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
