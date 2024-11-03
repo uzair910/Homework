@@ -1,6 +1,6 @@
-@echo off
+echo off
 
-:: Install dependencies for Homework.UI
+# Install dependencies for Homework.UI
 echo Installing dependencies for Homework.UI...
 cd Homework.UI
 npm install -g vite
@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 fi
 echo Homework.UI dependencies installed and built.
 
-:: Install dependencies for Homework.API
+# Install dependencies for Homework.API
 echo Installing dependencies for Homework.API...
 cd ../Homework.Api
 dotnet restore
@@ -25,7 +25,7 @@ if [ $? -ne 0 ]; then
 fi
 echo Homework.API dependencies installed.
 
-:: Install dependencies for Homework.API.Tests
+# Install dependencies for Homework.API.Tests
 echo Installing dependencies for Homework.API.Tests...
 cd ../Homework.Api.Tests
 dotnet restore
