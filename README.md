@@ -55,7 +55,7 @@ c. Run the React app
 3. Inorder to install/restore missing dependencies, run the command: 'dotnet restore'
 4. Run the following command to run tests: 'dotnet test'
 #### Troubleshooting:
-    1. If you encounter any issues during the setup process, check the terminal output for error messages.
-    2. If you're having trouble, try deleting the bin and obj directories and running dotnet restore and dotnet test again.
+1. If you encounter any issues during the setup process, check the terminal output for error messages.
+2. If you're having trouble, try deleting the bin and obj directories and running dotnet restore and dotnet test again.
 ## Happy Reviewing! :)
 
