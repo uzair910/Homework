@@ -25,7 +25,7 @@ function App() {
 
   const handleSearch = (query: string) => {
     const filteredProducts = products.filter((product) =>
-      product.title.toLowerCase().includes(query.toLowerCase())
+      product.title.toLowerCase().includes(query.toLowerCase().trimEnd().trimStart())
     );
     setFilteredProducts(filteredProducts);
   };
