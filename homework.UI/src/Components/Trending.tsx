@@ -1,4 +1,5 @@
-import { Product } from "../interfaces/productInterface";
+import { Product } from "../interfaces/Product";
+import styles from "./Trending.module.css";
 
 interface TrendingProps {
   products: Product[];
@@ -12,8 +13,8 @@ export default function Trending({ products }: TrendingProps) {
     .join(", ");
 
   return (
-    <p className="trending-products">
-      <span className="label">Trending:</span> {topThreeProducts}
+    <p className={styles.trendingProducts}>
+      <span className={styles.trendingLabel}>Trending:</span> {topThreeProducts}
     </p>
   );
 }

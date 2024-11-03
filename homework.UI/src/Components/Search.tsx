@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from "react";
+import styles from "./Search.module.css";
 
 export default function Search({
   onSearch,
@@ -16,7 +17,7 @@ export default function Search({
   return (
     <input
       value={query}
-      className="search-input"
+      className={styles.searchInput}
       type="text"
       placeholder="Search by name..."
       onChange={handleSearch}

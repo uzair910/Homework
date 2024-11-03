@@ -1,14 +1,11 @@
+import styles from "./Header.module.css";
+
 export default function Header() {
   return (
-    <header id="header">
-      <div id="title">
+    <header className={styles.header}>
+      <div className={styles.title}>
         <h2>Homework MVC</h2>
       </div>
-      {/* <div>
-        <nav>
-          <button className="button">Home</button>
-        </nav>
-      </div> */}
     </header>
   );
 }

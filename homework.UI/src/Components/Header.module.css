@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 5%;
+  justify-content: center;
+}
+
+.header .title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header h2 {
+  color: goldenrod;
+  font-size: 2.5rem;
+}
+
+/* Decrease header text for mobile devices */
+@media only screen and (max-width: 768px) {
+  .header {
+    text-align: left;
+    padding: 1rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}

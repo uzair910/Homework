@@ -1,0 +1,10 @@
+.loadingMessage {
+  font: inherit;
+  font-size: 16px;
+  color: #f0efef;
+  text-align: center;
+}
+
+.loadingMessageError {
+  color: red;
+}

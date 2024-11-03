@@ -1,25 +1,20 @@
-import "./App.css";
-import { API_URL, API_GET_ALL_PRODUCTS, DISCOUNT_PERCENTAGE } from "./Data";
+import { DISCOUNT_PERCENTAGE } from "./Data";
 import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Products from "./Components/Products";
 import Search from "./Components/Search";
-import { Product } from "./interfaces/productInterface";
+import { Product } from "./interfaces/Product";
 import Trending from "./Components/Trending";
-import { useFetchData } from "./hooks/usehttp";
+import { useProducts } from "./hooks/useProducts";
+import Loading from "./Components/Loading";
 
 function App() {
-  const { loading, error, data } = useFetchData(
-    API_URL + API_GET_ALL_PRODUCTS,
-    DISCOUNT_PERCENTAGE
-  );
+  const { loading, error, data } = useProducts(DISCOUNT_PERCENTAGE);
   const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
 
   useEffect(() => {
     if (data) {
       setProducts(data);
-      setFilteredProducts(data);
     }
   }, [data, error]);
 
@@ -29,20 +24,19 @@ function App() {
         .toLowerCase()
         .includes(query.toLowerCase().trimEnd().trimStart())
     );
-    setFilteredProducts(filteredProducts);
+    setProducts(filteredProducts);
   };
 
   return (
     <>
       <Header />
       <Search onSearch={handleSearch} />
-      <div className={`loading-message${error ? " error" : ""}`}>
-        {loading ? "Loading..." : error?.message ?? ""}
-      </div>
+      <Loading error={error} loading={loading} />
+
       {!error && (
         <>
           <Trending products={products} />
-          <Products products={filteredProducts} />
+          <Products products={products} />
         </>
       )}
     </>
