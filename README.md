@@ -1,3 +1,30 @@
+# Requirements:
+
+## Products listing web application 
+The main idea of this exercise is to implement a simple web application solution that shows a list of products fetched from [Dummy JSON](https://dummyjson.com/products) REST API endpoint.
+
+Solution should consist of two projects. One is an API project called Homework.Api and another one called Homework.Api.Tests with unit tests for the API project. You will find more details on each project down below. In addition, the solution should contain a React frontend that calls the API defined in Homework.Api.
+
+## API project
+The project must be implemented using ASP.NET Core Web API. It can be created using .NET CLI like this:
+`dotnet new webapi -n Homework.Api`
+
+Add a controller that fetches products from `https://dummyjson.com/products` REST API endpoint and serves them to the React frontend. 
+
+The API documentation can be found [HERE](https://dummyjson.com/docs/products).
+
+It's enough to show only first page of the products that `https://dummyjson.com/products` API endpoint returns by default, no need to fetch all the products. Design the backend so that it could be extended to include products from other sources too (not just from https://dummyjson.com/products).
+
+The requirements for the products listing page are the following:
+
+1. Show each product as a card, as shown in the mock-ups below. Each card should contain title, brand and the price of the product.
+2. Show only products that have discount percentage of 10% or more. The discount value comes in discountPercentage property for an individual product from the API.
+3. In addition to showing the list of products, show the title of the trending product which is the product with the highest rating.
+4. Implement the layout for desktop and mobile modes.
+5. Implement a search text input for filtering products by title. Only products where title contains the search text should be shown (find an example below). The filtering should be done on the client side purely, meaning you should not make AJAX calls to the back-end to fetch filtered data.
+6. The UI implementation doesn't have to be pixel perfect.
+
+
 # SETUP
 
 ## Prerequisites
